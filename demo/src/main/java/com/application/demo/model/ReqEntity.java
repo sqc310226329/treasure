@@ -5,7 +5,7 @@
  * Developer Web Site: http://open.BYCDAO.com.
  */
 
-package com.treasure.test.model;
+package com.application.demo.model;
 
 import io.swagger.annotations.ApiModelProperty;
 

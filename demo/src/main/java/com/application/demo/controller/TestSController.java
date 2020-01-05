@@ -1,9 +1,9 @@
-package com.treasure.test.controller;
+package com.application.demo.controller;
 
+import com.application.demo.model.ReqEntity;
+import com.application.demo.model.Rest;
+import com.application.demo.model.WorkExperience;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.treasure.test.model.ReqEntity;
-import com.treasure.test.model.Rest;
-import com.treasure.test.model.WorkExperience;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
