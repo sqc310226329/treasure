@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.treasure:swagger-treasure-starter:0.0.10-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://D:/maven/MyRepository/com/treasure/swagger-treasure-starter/0.0.10-SNAPSHOT/swagger-treasure-starter-0.0.10-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/maven/MyRepository/com/treasure/swagger-treasure-starter/0.0.10-SNAPSHOT/swagger-treasure-starter-0.0.10-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/maven/MyRepository/com/treasure/swagger-treasure-starter/0.0.10-SNAPSHOT/swagger-treasure-starter-0.0.10-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
