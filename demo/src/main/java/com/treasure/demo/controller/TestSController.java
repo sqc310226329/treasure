@@ -1,8 +1,8 @@
-package com.application.demo.controller;
+package com.treasure.demo.controller;
 
-import com.application.demo.model.ReqEntity;
-import com.application.demo.model.Rest;
-import com.application.demo.model.WorkExperience;
+import com.treasure.demo.model.ReqEntity;
+import com.treasure.demo.model.Rest;
+import com.treasure.demo.model.WorkExperience;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,4 +1,4 @@
-package com.application.demo;
+package com.treasure.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
