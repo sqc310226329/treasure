@@ -3,7 +3,8 @@ server:
 
 swagger:
   application-name: aa
-  base-package: com.application.demo
+  base-package: com.treasure.demo
+
 
 spring:
   application:
@@ -21,6 +22,8 @@ spring:
       max-wait: 1000
       filters: stat
       pool-prepared-statements: false
+  profiles:
+    active: pro
 
 #mybatis-plus:
 #  #mapper-locations: classpath:mybatis/**/*Mapper.xml
