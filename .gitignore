@@ -11,3 +11,6 @@
 demo/src/test/java/com/treasure/
 treasure.iml
 treasure-demo/treasure-demo.iml
+/treasure-demo/target/classes/com/treasure/demo/DemoTest.class
+/treasure-demo/target/classes/META-INF/treasure-demo.kotlin_module
+/treasure-demo/target/classes/com/treasure/TreasureDemo.class

@@ -47,3 +47,10 @@ spring:
 #    cache-enabled: false
 #    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+devtools:
+  livereload:
+    enabled: true #是否支持livereload
+    port: 35729
+  restart:
+    enabled: true #是否支持热部署

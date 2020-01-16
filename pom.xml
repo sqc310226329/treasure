@@ -11,6 +11,7 @@
     <modules>
         <module>treasure-demo</module>
         <module>demo</module>
+        <module>treasure-oauth2</module>
     </modules>
 
     <properties>
@@ -35,6 +36,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/io.spring.platform/platform-bom -->
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>${spring.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
