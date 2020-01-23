@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qlys.report.dao.mapper.FundFlowMapper">
+
+    <select id="queryFund" resultType="com.qlys.report.dto.QueryFundDTO">
+        SELECT
+            wb.waybill_id AS documentNumber,
+            ud.real_name AS carrier,
+            ud.identity_card AS actualCarrierID,
+            ut.truck_no AS vehicleNumber,
+            ut.license_plate_color AS plateColor,
+            wb.waybill_id AS shippingNoteNumber,
+            wbpl.real_total_price AS totalMonetaryAmount,
+            wbpl.payee_name AS recipient,
+            wbpl.bank_card AS receiptAccount,
+            wbpl.withdrawal_order_id AS sequenceCode,
+            wbpl.real_total_price AS monetaryAmount,
+            DATE_FORMAT(wbpl.result_time,'%Y-%m-%d %H:%m:%s') AS dateTime,
+            wbpl.bank_cord AS bankCode
+        FROM
+            wl_waybill wb
+            JOIN wl_waybill_pay_log wbpl ON wb.waybill_id = wbpl.waybill_id
+            AND wbpl.withdrawal_status = 1
+            LEFT JOIN um_driver ud ON wbpl.driver_id = ud.driver_id
+            LEFT JOIN um_truck ut ON wb.truck_id = ut.truck_id
+            WHERE  wb.waybill_id = #{wayBillId} and wb.waybill_report_flag=1
+    </select>
+    <select id="queryFundList" resultType="com.qlys.report.vo.FundFlowResultVo" >
+        SELECT
+        wb.waybill_report_flag AS waybillReportFlag,
+        wb.waybill_id AS waybillId,
+        ut.truck_no AS truckNo,
+        ud.real_name AS driverName,
+        ud.`mobile` AS driverMobile,
+        uc.`company_name` AS ownerCompanyName,
+        wbpl.real_total_price AS totalPrice  ,
+        wbpl.`real_price` AS realTotalPrice,
+        wbpl.create_time AS payTime,
+        wb.`create_time` AS dispatchTime,
+        wb.fund_flow_report_time AS fundFlowReportTime
+        FROM
+        wl_waybill wb
+        JOIN wl_waybill_pay_log wbpl
+        ON wb.waybill_id = wbpl.waybill_id
+        AND wbpl.withdrawal_status = 1
+        LEFT JOIN um_driver ud
+        ON wbpl.driver_id = ud.driver_id
+        LEFT JOIN um_truck ut
+        ON wb.truck_id = ut.truck_id
+        LEFT JOIN `um_company` uc
+        ON wb.owner_company_id = uc.`company_id`
+        WHERE wbpl.withdrawal_status = 1
+        AND wbpl.status = 1
+        AND (wb.waybill_report_flag &gt; 0 AND wb.waybill_report_flag &lt;5 AND wb.waybill_report_flag <![CDATA[ <> ]]> 2)
+        <if test="waybillId !=null and waybillId !=''">
+           and wb.waybill_id = #{waybillId}
+        </if>
+        <if test="truckNo !=null and truckNo !=''">
+            and  ut.truck_no = #{truckNo}
+        </if>
+        <if test="driverName !=null and driverName !=''">
+            and  ud.real_name = #{driverName}
+        </if>
+        <if test="dispatchStartTime !=null and dispatchStartTime !=''">
+            and wb.`create_time` <![CDATA[ >= ]]> #{dispatchStartTime}
+        </if>
+        <if test="dispatchEndTime !=null and dispatchEndTime !=''">
+            and  wb.`create_time` <![CDATA[ <= ]]> #{dispatchEndTime}
+        </if>
+        <if test="payStartTime !=null and payStartTime !=''">
+            and  wbpl.create_time <![CDATA[ >= ]]>  #{payStartTime}
+        </if>
+        <if test="payEndTime !=null and payEndTime !=''">
+            and  wbpl.create_time <![CDATA[ <= ]]> #{payEndTime}
+        </if>
+        <if test="waybillReportFlag !=null and waybillReportFlag !=''">
+            and  wb.waybill_report_flag = #{waybillReportFlag}
+        </if>
+        ORDER BY wb.`create_time` DESC
+    </select>
+
+</mapper>
