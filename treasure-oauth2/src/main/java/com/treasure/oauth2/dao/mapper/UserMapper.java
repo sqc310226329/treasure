@@ -2,6 +2,9 @@ package com.treasure.oauth2.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.treasure.oauth2.model.SecUser;
+import com.treasure.oauth2.vo.Permission;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,4 +17,5 @@ import com.treasure.oauth2.model.SecUser;
  */
 public interface UserMapper extends BaseMapper<SecUser> {
 
+    List<Permission> queryPermission(String userName);
 }

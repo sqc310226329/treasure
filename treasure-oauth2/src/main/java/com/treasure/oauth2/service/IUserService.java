@@ -2,6 +2,9 @@ package com.treasure.oauth2.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.treasure.oauth2.model.SecUser;
+import com.treasure.oauth2.vo.Permission;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.treasure.oauth2.model.SecUser;
  * @since 1.0
  */
 public interface IUserService extends IService<SecUser> {
+
+    List<Permission> queryPermission(String userName);
 }

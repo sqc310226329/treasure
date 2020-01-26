@@ -2,6 +2,9 @@ package com.treasure.oauth2.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,4 +29,5 @@ public class SecUser {
   private String status;
   private String createTime;
   private String updateTime;
+
 }

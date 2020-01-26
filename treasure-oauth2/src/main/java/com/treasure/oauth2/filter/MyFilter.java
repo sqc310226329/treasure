@@ -26,13 +26,13 @@ public class MyFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("我要进行过滤了");
-
-        try {
-            throw new ValidateCodeException("===========sdfsfsdf");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        System.out.println("我要进行过滤了");
+//
+//        try {
+//            throw new ValidateCodeException("===========sdfsfsdf");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         filterChain.doFilter(httpServletRequest,httpServletResponse);
     }
 }

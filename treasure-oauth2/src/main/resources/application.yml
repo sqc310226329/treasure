@@ -16,3 +16,6 @@ spring:
       max-wait: 1000
       filters: stat
       pool-prepared-statements: false
+
+mybatis-plus:
+  mapper-locations: classpath*:com/treasure/oauth2/dao/xml/*.xml

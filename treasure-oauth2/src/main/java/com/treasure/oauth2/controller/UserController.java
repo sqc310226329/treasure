@@ -3,6 +3,7 @@ package com.treasure.oauth2.controller;
 import com.treasure.oauth2.model.SecUser;
 import com.treasure.oauth2.service.IUserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,18 @@ public class UserController {
         SecUser byId = iUserService.getById("1072806377661009920");
         System.out.println(byId);
         return byId;
+    }
+    @RequestMapping("/oauth/test")
+    @PreAuthorize("hasAuthority('btn:monitor:online:query')")
+    public Object oauthTest(){
+        SecUser byId = iUserService.getById("1072806377661009920");
+        System.out.println(byId);
+        return "===="+byId;
+    }
+    @RequestMapping("/my/test")
+    public Object myTest(){
+        SecUser byId = iUserService.getById("1072806377661009920");
+        System.out.println(byId);
+        return "===="+byId;
     }
 }
