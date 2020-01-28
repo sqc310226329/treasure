@@ -12,6 +12,7 @@
         <module>treasure-demo</module>
         <module>demo</module>
         <module>treasure-oauth2</module>
+        <module>treasure-security-oauth2</module>
     </modules>
 
     <properties>
